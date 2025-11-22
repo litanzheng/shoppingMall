@@ -1,0 +1,14 @@
+package com.ling.shopping.product.feign.fallback;
+
+import com.ling.shopping.common.exception.BizCodeEnum;
+import com.ling.shopping.common.utils.R;
+import com.ling.shopping.product.feign.SeckillFeignService;
+import org.springframework.stereotype.Component;
+
+@Component
+public class SeckillFallbackService implements SeckillFeignService {
+    @Override
+    public R getSeckillSkuInfo(Long skuId) {
+        return R.error(BizCodeEnum.READ_TIME_OUT_EXCEPTION.getCode(), BizCodeEnum.READ_TIME_OUT_EXCEPTION.getMsg());
+    }
+}
