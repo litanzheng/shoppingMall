@@ -36,7 +36,7 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public  class shoppingSearchApplicationTests {
+public  class ShoppingSearchApplicationTests {
     @Autowired
     private RestHighLevelClient restHighLevelClient;
 

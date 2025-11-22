@@ -2,7 +2,7 @@ package com.ling.shopping.search.service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.ling.shopping.common.to.es.SkuEsModel;
-import com.ling.shopping.search.config.shoppingElasticSearchConfig;
+import com.ling.shopping.search.config.ShoppingElasticSearchConfig;
 import com.ling.shopping.search.service.ProductSaveService;
 import lombok.extern.slf4j.Slf4j;
 import org.elasticsearch.action.bulk.BulkRequest;
@@ -34,7 +34,7 @@ public class ProductSaveServiceimpl implements ProductSaveService {
             indexRequest.source(s, XContentType.JSON);
             bulkRequest.add(indexRequest);
         }
-        BulkResponse bulkResponse = restHighLevelClient.bulk(bulkRequest, shoppingElasticSearchConfig.COMMON_OPTIONS);
+        BulkResponse bulkResponse = restHighLevelClient.bulk(bulkRequest, ShoppingElasticSearchConfig.COMMON_OPTIONS);
         boolean hasFailures = bulkResponse.hasFailures();
         List<String> collect = Arrays.asList(bulkResponse.getItems()).stream().map(item -> {
             return item.getId();

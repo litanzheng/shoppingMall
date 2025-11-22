@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import com.ling.shopping.common.to.es.SkuEsModel;
 import com.ling.shopping.common.utils.R;
-import com.ling.shopping.search.config.shoppingElasticSearchConfig;
+import com.ling.shopping.search.config.ShoppingElasticSearchConfig;
 import com.ling.shopping.search.constant.EsConstant;
 import com.ling.shopping.search.feign.ProductFeignService;
 import com.ling.shopping.search.service.SearchService;
@@ -54,7 +54,7 @@ public class SearchServiceImpl implements SearchService {
         SearchResult searchResult= null;
         SearchRequest request = bulidSearchRequest(searchParam);
         try {
-            SearchResponse searchResponse = restHighLevelClient.search(request, shoppingElasticSearchConfig.COMMON_OPTIONS);
+            SearchResponse searchResponse = restHighLevelClient.search(request, ShoppingElasticSearchConfig.COMMON_OPTIONS);
             searchResult = bulidSearchResult(searchParam,searchResponse);
         } catch (IOException e) {
             e.printStackTrace();
