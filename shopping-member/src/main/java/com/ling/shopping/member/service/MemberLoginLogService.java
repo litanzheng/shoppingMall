@@ -1,0 +1,20 @@
+package com.ling.shopping.member.service;
+
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.ling.shopping.common.utils.PageUtils;
+import com.ling.shopping.member.entity.MemberLoginLogEntity;
+
+import java.util.Map;
+
+/**
+ * 会员登录记录
+ *
+ * @author Ethan
+ * @email hongshengmo@163.com
+ * @date 2020-05-27 23:01:00
+ */
+public interface MemberLoginLogService extends IService<MemberLoginLogEntity> {
+
+    PageUtils queryPage(Map<String, Object> params);
+}
+
