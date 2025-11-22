@@ -13,7 +13,7 @@ import java.util.List;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class shoppingOrderApplicationTests {
+public class ShoppingOrderApplicationTests {
     @Autowired
     private OrderService orderService;
 

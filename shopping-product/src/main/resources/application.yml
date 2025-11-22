@@ -1,0 +1,82 @@
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/gulimall_pms?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      max-lifetime: 50000
+  #  application:
+#    name: shopping-product
+  cloud:
+      nacos:
+        discovery:
+          server-addr: 127.0.0.1:8848  #nacos注册中心地址
+    # 文件上传秘钥
+      alicloud:
+        access-key: 123
+        secret-key: 123
+        oss:
+          endpoint: oss-cn-hangzhou.aliyuncs.com
+      sentinel:
+        transport:
+          dashboard: localhost:8080
+
+  zipkin:
+    enabled: false
+    base-url: http://localhost:9411
+    sender:
+      type: web
+    discovery-client-enabled: false
+  #采样取值介于 0到1之间，1则表示全部收集
+  sleuth:
+    sampler:
+      probability: 1
+    async:
+      enabled: false
+  thymeleaf:
+    cache: false
+  redis:
+    host: 127.0.0.1
+    port: 6379
+  cache:
+    type: redis
+    redis:
+      time-to-live: 3600000
+  session:
+    store-type: redis
+
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+server:
+  port: 10002
+  servlet:
+    session:
+      timeout: 30m
+
+logging:
+  level:
+    com.ling.shopping.product.dao: error
+
+# 自定义线程池参数
+shopping:
+  thread:
+    corePoolSize: 10
+    maxPoolSize: 20
+    keepAliveTime: 300
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+feign:
+  sentinel:
+    enabled: true
+
