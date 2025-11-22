@@ -11,21 +11,21 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: #nacos注册中心地址
+        server-addr: 127.0.0.1:8848 #nacos注册中心地址
     sentinel:
       transport:
         dashboard: localhost:8080
   thymeleaf:
     cache: false
   redis:
-    host: 192.168.56.102
+    host: 127.0.0.1
   session:
     store-type: redis
 
   rabbitmq:
     host: #
-    username: niceseason
-    password: mo19960729
+    username: guest
+    password: guest
     listener:
       simple:
         acknowledge-mode: manual
@@ -36,11 +36,12 @@ spring:
     sender:
       type: web
     discovery-client-enabled: false
+    enabled: false
   #采样取值介于 0到1之间，1则表示全部收集
   sleuth:
     sampler:
       probability: 1
-
+    enabled: false
 mybatis-plus:
   mapper-locations: classpath:/mapper/**/*.xml
   global-config:
