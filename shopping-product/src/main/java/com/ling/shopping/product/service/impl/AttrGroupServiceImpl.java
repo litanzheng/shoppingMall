@@ -52,7 +52,10 @@ public class AttrGroupServiceImpl extends ServiceImpl<AttrGroupDao, AttrGroupEnt
         String key = (String) params.get("key");
         if (!StringUtils.isEmpty(key)){
             queryWrapper.and((obj)->
-                    obj.eq("attr_group_id",key).or().like("attr_group_name",key));
+                    obj.eq("attr_group_id",key)
+                            .or().like("attr_group_name",key)
+                            .or().like("icon",key)
+            );
         }
         IPage<AttrGroupEntity> page = this.page(new Query<AttrGroupEntity>().getPage(params), queryWrapper);
         return new PageUtils(page);
