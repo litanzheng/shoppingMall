@@ -1,17 +1,8 @@
 package com.ling.shopping.seckill.controller;
 
-import com.alibaba.csp.sentinel.annotation.SentinelResource;
-import com.ling.common.exception.BizCodeEnum;
-import com.ling.shopping.common.utils.R;
 import com.ling.shopping.seckill.Service.SecKillService;
 import com.ling.shopping.seckill.to.SeckillSkuRedisTo;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import io.renren.common.utils.R;
 
 import java.util.List;
 
